@@ -3,8 +3,19 @@ function createGrid(num){
         const cell=document.createElement("div");
         cell.classList.add("grid-cell");
         document.querySelector(".grid").appendChild(cell);
+        cell.opacityLevel = 0;
+        cell.color = null;
         cell.addEventListener("mouseover", () => {
-            cell.style.backgroundColor = getRandomColor();
+            if(!cell.color){
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                cell.color = `${r}, ${g}, ${b}`;
+            }
+            if(cell.opacityLevel<1){
+                cell.opacityLevel+=0.1;
+            }
+            cell.style.backgroundColor = `rgba(${cell.color}, ${cell.opacityLevel})`;
           });
     }
 }
@@ -22,13 +33,4 @@ function promptUser(){
         
     }
 }
-
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
 
