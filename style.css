@@ -1,0 +1,22 @@
+body{
+    display:flex;
+    flex-direction:column;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid{
+    padding:20px;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:center;
+    width:560px;
+}
+
+.grid-cell{
+    height:35px;
+    width:35px;
+    box-sizing: border-box;
+    border: 1px solid #000000;
+}
